@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julian Voss | Author of The Elemental Horrors</title>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --text-color: #e0e0e0;
+            --accent-color: #a33333; /* Deep red for horror/thriller vibe */
+            --secondary-bg: #1a1a1a;
+            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-serif: 'Georgia', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover { opacity: 1; color: var(--accent-color); }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0f0f0f 100%);
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: #888;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background-color: #c44444;
+        }
+
+        /* Books Section */
+        .books-section {
+            padding: 5rem 2rem;
+            background-color: var(--secondary-bg);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: var(--accent-color);
+        }
+
+        .book-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        /* 6:9 Ratio Placeholder for Cover */
+        .book-cover {
+            flex: 1;
+            min-width: 250px;
+            aspect-ratio: 6/9;
+            background-color: #000;
+            border: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            font-size: 0.9rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Remove this 'img' tag style if you replace the div with a real <img> tag */
+        .book-cover::after {
+            content: "Cover Art (6:9)";
+        }
+
+        .book-info {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .book-info h3 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .series-tag {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .book-desc {
+            margin-bottom: 2rem;
+            color: #bbb;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .book-card { flex-direction: column; text-align: center; }
+            .nav-links { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Julian Voss</div>
+        <div class="nav-links">
+            <a href="#books">Books</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Worlds of Unease</h1>
+        <p>Explore the dark corners of fiction. Author of <em>The Elemental Horrors</em> series.</p>
+        <a href="#books" class="btn">View Latest Release</a>
+    </header>
+
+    <section id="books" class="books-section">
+        <div class="container">
+            <h2 class="section-title">Featured Works</h2>
+
+            <div class="book-card">
+                <div class="book-cover">
+                    </div>
+                <div class="book-info">
+                    <h3>The Elemental Horrors: Vol 1</h3>
+                    <span class="series-tag">Book 1 of The Elemental Horrors</span>
+                    <p class="book-desc">
+                        A gripping descent into the unknown. When ancient forces awaken, the line between reality and nightmare begins to blur. Dive into the first installment of the Elemental Horrors series, available now on Amazon KDP.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover" style="opacity: 0.5;"></div>
+                <div class="book-info">
+                    <h3>Upcoming Title</h3>
+                    <span class="series-tag">Coming Soon</span>
+                    <p class="book-desc">
+                        The next chapter is currently being written. Stay tuned for updates on the continuation of the series.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="padding: 5rem 2rem; text-align: center; max-width: 800px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 1.5rem;">About the Author</h2>
+        <p style="color: #bbb; margin-bottom: 2rem;">
+            Julian Voss is a writer of horror and thriller fiction, best known for <em>The Elemental Horrors</em> series. Publishing independently through Amazon KDP, Julian crafts stories that linger in the mind long after the lights go out.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Julian Voss. All rights reserved.</p>
+    </footer>
+
+</body>
+                      </html>
+
