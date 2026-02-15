@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julian Voss | Author of The Elemental Horrors</title>
+    <title>Julian Voss | Author of Elemental Horrors</title>
     <style>
         :root {
             --bg-color: #0f0f0f;
@@ -11,7 +11,7 @@
             --accent-color: #a33333; /* Deep red for horror/thriller vibe */
             --secondary-bg: #1a1a1a;
             --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --font-serif: 'Georgia', serif;
+            --font-serif: 'Times New Roman', Times, serif; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,10 +34,12 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
             font-weight: bold;
             letter-spacing: 2px;
             text-transform: uppercase;
+            color: var(--accent-color);
         }
 
         .nav-links a {
@@ -46,58 +48,65 @@
             margin-left: 2rem;
             opacity: 0.7;
             transition: opacity 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
         .nav-links a:hover { opacity: 1; color: var(--accent-color); }
 
         /* Hero Section */
         .hero {
-            height: 80vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0f0f0f 100%);
+            padding: 4rem 2rem;
+            background: radial-gradient(circle at center, #241313 0%, #0f0f0f 100%);
         }
 
         .hero h1 {
             font-family: var(--font-serif);
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
             letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 2rem;
-            color: #888;
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-bottom: 3rem;
+            color: #aaa;
+            font-style: italic;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 15px 35px;
             background-color: var(--accent-color);
             color: white;
             text-decoration: none;
-            border-radius: 2px;
+            border: 1px solid var(--accent-color);
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: transform 0.2s, background-color 0.2s;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            background-color: #c44444;
+            background-color: transparent;
+            color: var(--accent-color);
         }
 
         /* Books Section */
         .books-section {
             padding: 5rem 2rem;
             background-color: var(--secondary-bg);
+            border-top: 1px solid #222;
         }
 
         .container {
@@ -108,38 +117,48 @@
         .section-title {
             text-align: center;
             font-family: var(--font-serif);
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
+            font-size: 3rem;
+            margin-bottom: 5rem;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .section-title span {
             color: var(--accent-color);
         }
 
         .book-card {
             display: flex;
             flex-wrap: wrap;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
-            margin-bottom: 4rem;
+            margin-bottom: 6rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid #2a2a2a;
         }
 
-        /* 6:9 Ratio Placeholder for Cover */
-        .book-cover {
+        .book-card:last-child {
+            border-bottom: none;
+        }
+
+        /* Book Cover Styling */
+        .book-cover-container {
             flex: 1;
-            min-width: 250px;
-            aspect-ratio: 6/9;
-            background-color: #000;
-            border: 1px solid #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #333;
-            font-size: 0.9rem;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            min-width: 280px;
+            max-width: 350px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            transition: transform 0.3s ease;
         }
 
-        /* Remove this 'img' tag style if you replace the div with a real <img> tag */
-        .book-cover::after {
-            content: "Cover Art (6:9)";
+        .book-cover-container:hover {
+            transform: scale(1.02);
+        }
+
+        .book-cover-img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .book-info {
@@ -149,37 +168,44 @@
 
         .book-info h3 {
             font-family: var(--font-serif);
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
-        }
-
-        .series-tag {
-            display: inline-block;
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .book-desc {
+        .series-tag {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--accent-color);
             margin-bottom: 2rem;
+            font-style: italic;
+            font-family: var(--font-serif);
+        }
+
+        .book-desc {
+            margin-bottom: 2.5rem;
             color: #bbb;
+            font-size: 1.05rem;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 3rem;
-            border-top: 1px solid #222;
-            color: #666;
+            padding: 4rem 2rem;
+            background-color: #0a0a0a;
+            color: #555;
             font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .book-card { flex-direction: column; text-align: center; }
-            .nav-links { display: none; } /* Simplified for mobile */
+        @media (max-width: 850px) {
+            .hero h1 { font-size: 3rem; }
+            .book-card { flex-direction: column; text-align: center; gap: 2rem; }
+            .book-cover-container { margin: 0 auto; max-width: 300px; }
+            .nav-links { display: none; }
+            .logo { margin: 0 auto; }
         }
     </style>
 </head>
@@ -188,52 +214,266 @@
     <nav>
         <div class="logo">Julian Voss</div>
         <div class="nav-links">
-            <a href="#books">Books</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#books">The Library</a>
+            <a href="#about">About the Author</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>Worlds of Unease</h1>
-        <p>Explore the dark corners of fiction. Author of <em>The Elemental Horrors</em> series.</p>
-        <a href="#books" class="btn">View Latest Release</a>
+        <h1>History is the air we breathe.</h1>
+        <p>Explore the elemental horrors where the past refuses to stay buried.</p>
+        <a href="#books" class="btn">Enter the Library</a>
     </header>
 
     <section id="books" class="books-section">
         <div class="container">
-            <h2 class="section-title">Featured Works</h2>
+            <h2 class="section-title">The <span>Full</span> Collection</h2>
 
             <div class="book-card">
-                <div class="book-cover">
-                    </div>
+                <div class="book-cover-container">
+                    <img src="image_7.png" alt="The Sea of Ashes Cover" class="book-cover-img">
+                </div>
                 <div class="book-info">
-                    <h3>The Elemental Horrors: Vol 1</h3>
-                    <span class="series-tag">Book 1 of The Elemental Horrors</span>
+                    <h3>The Sea of Ashes</h3>
+                    <span class="series-tag">The Chronos Rot: Book 1</span>
                     <p class="book-desc">
-                        A gripping descent into the unknown. When ancient forces awaken, the line between reality and nightmare begins to blur. Dive into the first installment of the Elemental Horrors series, available now on Amazon KDP.
+                        [Summary needed] Dive into the beginning of the Chronos Rot saga.
                     </p>
                     <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
                 </div>
             </div>
 
             <div class="book-card">
-                <div class="book-cover" style="opacity: 0.5;"></div>
+                <div class="book-cover-container">
+                    <img src="image_3.png" alt="The Throne of Thorns Cover" class="book-cover-img">
+                </div>
                 <div class="book-info">
-                    <h3>Upcoming Title</h3>
-                    <span class="series-tag">Coming Soon</span>
+                    <h3>The Throne of Thorns</h3>
+                    <span class="series-tag">The Chronos Rot: Book 2</span>
                     <p class="book-desc">
-                        The next chapter is currently being written. Stay tuned for updates on the continuation of the series.
+                        [Summary needed] The second installment of the Chronos Rot series.
                     </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
                 </div>
             </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_6.png" alt="The Drowning Frontier Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Drowning Frontier</h3>
+                    <span class="series-tag">The Chronos Rot: Book 3</span>
+                    <p class="book-desc">
+                        [Summary needed] The Great Flood of 1862. The conclusion to the Chronos Rot trilogy.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_2.png" alt="The Black Lung of London Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Black Lung of London</h3>
+                    <span class="series-tag">History is the air we breathe.</span>
+                    <p class="book-desc">
+                        [Summary needed] A tale of industrial horror and suffocating spirits in Victorian London.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_9.png" alt="The Aether Vessel’s Wake Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Aether Vessel’s Wake</h3>
+                    <span class="series-tag">A Julian Voss Horror Novel</span>
+                    <p class="book-desc">
+                        [Summary needed] Sky-bound terror awaits in the wake of the great vessel.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_1.png" alt="The Ash-Glass Sky Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Ash-Glass Sky</h3>
+                    <span class="series-tag">The ice is eternal. The fire never dies.</span>
+                    <p class="book-desc">
+                        [Summary needed] When the volcano erupts, it brings more than just ash.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_8.png" alt="The Iron Graves Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Iron Graves of King William Land</h3>
+                    <span class="series-tag">The ice remembers what the Empire forgot.</span>
+                    <p class="book-desc">
+                        [Summary needed] A chilling expedition into the frozen wastes where the dead do not sleep.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_4.png" alt="The Dragon’s Deluge Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Dragon’s Deluge</h3>
+                    <span class="series-tag">A Julian Voss Horror Novel</span>
+                    <p class="book-desc">
+                        [Summary needed] Ancient myths rise from the waters to claim the living.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_0.png" alt="The Gilded Grave Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Gilded Grave</h3>
+                    <span class="series-tag">Blood is the price of the Fever.</span>
+                    <p class="book-desc">
+                        [Summary needed] The gold rush brings hope, but the mines hold only darkness.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_5.png" alt="The Fault-Line Echoes Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Fault-Line Echoes</h3>
+                    <span class="series-tag">The Earth remembers, the City forgets.</span>
+                    <p class="book-desc">
+                        [Summary needed] Something ancient stirs beneath the cracks of the city.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_10.png" alt="The Drago Tail Inferno Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Drago Tail Inferno</h3>
+                    <span class="series-tag">A Julian Voss Horror Novel</span>
+                    <p class="book-desc">
+                        [Summary needed] Description of The Drago Tail Inferno goes here.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_11.png" alt="The Cloven Wake Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Cloven Wake</h3>
+                    <span class="series-tag">A Julian Voss Horror Novel</span>
+                    <p class="book-desc">
+                        [Summary needed] Description of The Cloven Wake goes here.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_12.png" alt="The River of Knives Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The River of Knives</h3>
+                    <span class="series-tag">A Julian Voss Horror Novel</span>
+                    <p class="book-desc">
+                        [Summary needed] Description of The River of Knives goes here.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_13.png" alt="The Amber Grid Architect Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Amber Grid Architect</h3>
+                    <span class="series-tag">A Julian Voss Horror Novel</span>
+                    <p class="book-desc">
+                        [Summary needed] Description of The Amber Grid Architect goes here.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_14.png" alt="The Hunger of the Horizon Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Hunger of the Horizon</h3>
+                    <span class="series-tag">A Julian Voss Horror Novel</span>
+                    <p class="book-desc">
+                        [Summary needed] Description of The Hunger of the Horizon goes here.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_15.png" alt="The Siberian Glass Walkers Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Siberian Glass Walkers</h3>
+                    <span class="series-tag">A Julian Voss Horror Novel</span>
+                    <p class="book-desc">
+                        [Summary needed] Description of The Siberian Glass Walkers goes here.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover-container">
+                    <img src="image_16.png" alt="The Mycelium Mandate Cover" class="book-cover-img">
+                </div>
+                <div class="book-info">
+                    <h3>The Mycelium Mandate</h3>
+                    <span class="series-tag">A Julian Voss Horror Novel</span>
+                    <p class="book-desc">
+                        [Summary needed] Description of The Mycelium Mandate goes here.
+                    </p>
+                    <a href="https://amazon.com/author/julianvoss" target="_blank" class="btn">Buy on Amazon</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="about" style="padding: 5rem 2rem; text-align: center; max-width: 800px; margin: 0 auto;">
-        <h2 style="font-family: var(--font-serif); margin-bottom: 1.5rem;">About the Author</h2>
-        <p style="color: #bbb; margin-bottom: 2rem;">
-            Julian Voss is a writer of horror and thriller fiction, best known for <em>The Elemental Horrors</em> series. Publishing independently through Amazon KDP, Julian crafts stories that linger in the mind long after the lights go out.
+    <section id="about" style="padding: 6rem 2rem; text-align: center; max-width: 900px; margin: 0 auto; border-top: 1px solid #222;">
+        <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px;">About the Author</h2>
+        <p style="color: #bbb; margin-bottom: 2.5rem; font-size: 1.1rem;">
+            Julian Voss is an independent writer of elemental horror and historical thrillers. His work explores the terrifying intersection where human ambition meets the unstoppable forces of nature and history.
         </p>
     </section>
 
@@ -242,5 +482,4 @@
     </footer>
 
 </body>
-                      </html>
-
+</html>
