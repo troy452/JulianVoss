@@ -742,6 +742,18 @@ In a land where the living envy the dead, Cillian must decide if he will fight t
     <footer>
         <p>&copy; 2026 Julian Voss. All rights reserved.</p>
     </footer>
+<script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
 
+    // Disable keyboard shortcuts for saving (Ctrl+S, Ctrl+U, F12)
+    document.onkeydown = function(e) {
+        if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83)) {
+            return false;
+        }
+    };
+</script>
 </body>
 </html>
