@@ -55,29 +55,57 @@
 
         .nav-links a:hover { opacity: 1; color: var(--accent-color); }
 
-        /* Hero Section */
+        /* HERO SECTION - UPDATED FOR AUTHOR PHOTO */
         .hero {
-            min-height: 70vh;
+            min-height: 80vh;
             display: flex;
-            flex-direction: column;
+            align-items: center; /* Vertically center */
             justify-content: center;
-            align-items: center;
-            text-align: center;
             padding: 4rem 2rem;
             background: radial-gradient(circle at center, #241313 0%, #0f0f0f 100%);
         }
 
+        /* Container to hold Image (Left) and Text (Right) */
+        .hero-container {
+            max-width: 1200px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 4rem; /* Space between image and text */
+            width: 100%;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 450px; /* Limits image size so it doesn't take over */
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8); /* Strong shadow for drama */
+            border: 1px solid #333;
+        }
+
+        .hero-content {
+            flex: 1.5;
+            text-align: left; /* Align text to left next to image */
+        }
+
         .hero h1 {
             font-family: var(--font-serif);
-            font-size: 4.5rem;
+            font-size: 4rem; /* Slightly smaller to fit side-by-side */
             margin-bottom: 1rem;
             letter-spacing: -1px;
             text-transform: uppercase;
+            line-height: 1.1;
         }
 
         .hero p {
             font-size: 1.3rem;
-            max-width: 700px;
+            max-width: 600px;
             margin-bottom: 3rem;
             color: #aaa;
             font-style: italic;
@@ -201,7 +229,19 @@
         }
 
         @media (max-width: 850px) {
+            /* Mobile adjustments */
+            .hero-container {
+                flex-direction: column; /* Stack image and text */
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+
             .hero h1 { font-size: 3rem; }
+            
             .book-card { flex-direction: column; text-align: center; gap: 2rem; }
             .book-cover-container { margin: 0 auto; max-width: 300px; }
             .nav-links { display: none; }
@@ -220,9 +260,17 @@
     </nav>
 
     <header class="hero">
-        <h1>History is the air we breathe.</h1>
-        <p>Explore the elemental horrors where the past refuses to stay buried.</p>
-        <a href="#books" class="btn">Enter the Library</a>
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="edited-photo.png" alt="Julian Voss Author Portrait">
+            </div>
+
+            <div class="hero-content">
+                <h1>History is the air we breathe.</h1>
+                <p>Explore the elemental horrors where the past refuses to stay buried.</p>
+                <a href="#books" class="btn">Enter the Library</a>
+            </div>
+        </div>
     </header>
 
     <section id="books" class="books-section">
@@ -237,8 +285,6 @@
                     <h3>The Sea of Ashes</h3>
                     <span class="series-tag">The Chronos Rot: Book 1</span>
                     <p class="book-desc">
-
-
 The world is not just ending; it is dissolving.
 
 The year is 1200 BCE. The great bronze empires of the Mediterranean—Egypt, the Hittites, and the Mycenaean Greeks—are melting into a landscape of terminal decay. The sky has turned a permanent, bruised purple, and the air is thick with the scent of ozone and burning cedar.
@@ -263,8 +309,6 @@ As Kaelen leads a band of desperate refugees across a scorched world, he must ma
                     <h3>The Throne of Thorns</h3>
                     <span class="series-tag">The Chronos Rot: Book 2</span>
                     <p class="book-desc">
-
-
 In a land without law, the only crown is made of thorns.
 
 England, 1140 AD. The kingdom is a frozen graveyard. For nineteen years, a brutal civil war known as "The Anarchy" has torn the earth apart as Empress Matilda and King Stephen fight for a throne that rests on a mountain of bones. Every castle is a jagged tooth biting into a leaden sky, and the air tastes of iron and wet fur.
@@ -291,8 +335,6 @@ When Elias is tasked with smuggling a child—the "True Spark"—through a tunne
                     <h3>The Drowning Frontier</h3>
                     <span class="series-tag">The Chronos Rot: Book 3</span>
                     <p class="book-desc">
-
-
 The American West didn't just fall—it drowned.
 
 California, 1862. It hasn't stopped raining for forty-three days. The Central Valley, once a land of golden promise, has been transformed into a three-hundred-mile inland sea. The air is thick with the scent of "sweet rot," and the rising brine is claiming everything in its path.
@@ -317,8 +359,6 @@ In a world that has become a watery grave, can one man’s will hold back the ti
                     <h3>The Black Lung of London</h3>
                     <span class="series-tag">History is the air we breathe.</span>
                     <p class="book-desc">
-
-
 Five Days of Darkness. A City Choking on its Past.
 
 In the Great Smog of London, 1952, breathing is a death sentence—and the fog isn't just smoke.
@@ -358,7 +398,7 @@ But when the HMS Erebus and Terror become locked in the crushing grip of the Vic
 It is a biological breakdown that mimics scurvy, but instead of losing teeth, the men lose their opacity. They become The Luminous—sailors who are half-ghost while still breathing, their bodies revealing the glowing clockwork of the engines within.
 
 In a landscape where the stars have rearranged and the ice speaks in the voices of the dead, the survivors must choose: fade into the beautiful, silent white of the Aether, or commit unthinkable acts to anchor their souls to the rotting wood of the ships.
-"The Aether-Vessel’s Wake" is a masterful blend of naval history and cosmic horror—a journey into the deep, enduring memory of the ice.                     </p>
+"The Aether-Vessel’s Wake" is a masterful blend of naval history and cosmic horror—a journey into the deep, enduring memory of the ice.                      </p>
                     <a href="https://amazon.com/dp/B0GMT9PJRW" target="_blank" class="btn">Buy on Amazon</a>
                 </div>
             </div>
@@ -467,8 +507,6 @@ As the Irish rebel Peter Lalor rallies the diggers behind the tattered Southern 
                     <h3>The Fault-Line Echoes</h3>
                     <span class="series-tag">The Earth remembers, the City forgets.</span>
                     <p class="book-desc">
-
-
 The Earth Didn’t Just Shake. It Spoke.
 
 In this haunting work of historical cosmic horror fiction, the 1906 San Francisco earthquake becomes something far more terrifying than a natural disaster.
@@ -695,5 +733,4 @@ In a land where the living envy the dead, Cillian must decide if he will fight t
     </footer>
 
 </body>
-    </html>
-    
+</html>
